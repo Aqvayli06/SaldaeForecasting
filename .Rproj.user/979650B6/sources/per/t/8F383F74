@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1587200373684.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "698018768",
+    "id" : "8F383F74",
+    "lastKnownWriteTime" : 1587155264,
+    "last_content_update" : 1587155264,
+    "path" : "~/Saldae_Analytics/SaldaeAnalyticsProd/R/app_server.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "543,71",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

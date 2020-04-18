@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1587198816078.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1283477318",
+    "id" : "8149280F",
+    "lastKnownWriteTime" : 1587216308,
+    "last_content_update" : 1587216308,
+    "path" : "~/Saldae_Analytics/SaldaePackages/SaldaeForecasting/R/fcast_summary_module.R",
+    "project_path" : "R/fcast_summary_module.R",
+    "properties" : {
+        "cursorPosition" : "102,89",
+        "scrollLine" : "101"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

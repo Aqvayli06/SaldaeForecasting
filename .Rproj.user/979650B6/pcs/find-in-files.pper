@@ -1,0 +1,10 @@
+{
+    "dialog-state" : {
+        "caseSensitive" : false,
+        "filePatterns" : [
+        ],
+        "path" : "~/Saldae_Analytics/SaldaePackages/SaldaeDataExplorer/R",
+        "query" : "detect_number_basis_units_in_upper_unit",
+        "regex" : false
+    }
+}
