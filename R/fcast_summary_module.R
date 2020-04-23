@@ -163,7 +163,7 @@ sekned_forecast_aqeru <- function(fcast_df = NULL, target_variable = NULL, backg
     )
   fcast_plot <- fcast_plot %>%
     plotly::layout(plot_bgcolor = background_colour, paper_bgcolor = background_colour, yaxis = list(title = target_variable),legend = list(orientation = "h", x = 0.35, y = 100)) %>%
-    plotly::config(displaylogo = F)
+    plotly::config(displaylogo = F)%>%plotly::partial_bundle()
 
   return(fcast_plot)
 }

@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1283477318",
+    "hash" : "2294500638",
     "id" : "8149280F",
-    "lastKnownWriteTime" : 1587216308,
-    "last_content_update" : 1587216308,
+    "lastKnownWriteTime" : 1587651116,
+    "last_content_update" : -2147483648,
     "path" : "~/Saldae_Analytics/SaldaePackages/SaldaeForecasting/R/fcast_summary_module.R",
     "project_path" : "R/fcast_summary_module.R",
     "properties" : {
-        "cursorPosition" : "102,89",
-        "scrollLine" : "101"
+        "cursorPosition" : "165,61",
+        "scrollLine" : "152"
     },
     "relative_order" : 3,
     "source_on_save" : false,
