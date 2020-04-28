@@ -1,0 +1,56 @@
+library(shiny)
+library(crosstalk)
+library(d3scatter)
+library(ggplot2)
+
+SA_clustering_ui <- function(id){
+  ns <- NS(id)
+  fluidRow(
+    column(width =2,
+           uiOutput(ns("number_clusters")))
+  )
+  fluidRow(
+    column(5, d3scatterOutput(ns("clust_mds"))),
+    column(7, plotOutput(ns("by_clusters")))
+  )
+}
+
+SA_clustering_mod <- function(input, output, session,tisefka) {
+
+  output$number_clusters <- renderUI({
+    clusters_choices <- c(2:12)
+    shinyWidgets::pickerInput(inputId = session$ns("number_clusters"),
+                              choices = clusters_choices,
+                              selected = 5)
+  })
+  clust_results <- reactive({
+    req(tisefka())
+    req(input$number_clusters)
+    tisefka_inu<-tail(tisefka(),500)
+    print("start clustering")
+    Saldae_cluserting_main(tisefka = tisefka_inu,num_clusters = input$number_clusters)
+  })
+
+  ts_clust_mds <- reactive({clustering_tisefka_mds(tsclust_results = clust_results())})
+
+  output$clust_mds <- renderD3scatter({
+    req(ts_clust_mds())
+    d3scatter::d3scatter(ts_clust_mds(), ~dist_x, ~dist_y,~factor(cluster), width="100%", height=250)
+  })
+
+  df_mds <- debounce(reactive({
+    req(ts_clust_mds())
+    ts_clust_mds()$data(withSelection = TRUE, withFilter = TRUE)}), 250)
+
+  output$by_clusters <- renderPlot({
+    req(df_mds())
+    if(!"selected_"%in%colnames(df_mds()))return(NULL)
+    selected_variables<- df_mds()%>%dplyr::filter(selected_==TRUE)
+    selected_variables<- paste(selected_variables$ts_names)
+    my_clust_plot<-clust_results()$tisefka_origin%>%dplyr::select(c("date",selected_variables))%>%
+    tidyr::gather("ts_name","value" ,-date)
+    ggplot2::ggplot(data = my_clust_plot,mapping= aes(x = date,y = value,group=ts_name,colour=ts_name))+geom_line()
+  })
+}
+
+

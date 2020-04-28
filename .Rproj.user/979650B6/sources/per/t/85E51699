@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3315475275",
+    "hash" : "4013941140",
     "id" : "85E51699",
-    "lastKnownWriteTime" : 1587213486,
-    "last_content_update" : 1587213486,
+    "lastKnownWriteTime" : 1587921041,
+    "last_content_update" : -2147483648,
     "path" : "~/Saldae_Analytics/SaldaePackages/SaldaeForecasting/DESCRIPTION",
     "project_path" : "DESCRIPTION",
     "properties" : {
-        "cursorPosition" : "5,50",
+        "cursorPosition" : "13,15",
         "scrollLine" : "0"
     },
     "relative_order" : 2,
