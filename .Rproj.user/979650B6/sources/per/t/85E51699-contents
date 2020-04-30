@@ -11,7 +11,8 @@ Imports:
       purrr,
       plotly,
       crosstalk,
-      d3scatter
+      d3scatter,
+      dtwclust
 License: MIT
 Encoding: UTF-8
 LazyData: true
