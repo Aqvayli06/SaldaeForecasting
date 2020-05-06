@@ -178,14 +178,14 @@ sekned_fcast_summary <- function(fcast_summary = NULL, time_unit = NULL, backgro
   )
   plot_fcast_summary_mean <- plot_fcast_summary_mean %>%
     plotly::layout(plot_bgcolor = background_colour, paper_bgcolor = background_colour) %>%
-    plotly::config(displaylogo = F)
+    plotly::config(displaylogo = F)%>%plotly::partial_bundle()
   plot_fcast_summary_sum <- plotly::plot_ly(
     data = fcast_summary[[time_unit]]$summary_sum, x = ~DATE, y = ~Sum, type = "bar", name = "Forecast Summary(Sum)",
     marker = list(color = "#ffcc5c")
   )
   plot_fcast_summary_sum <- plot_fcast_summary_sum %>%
     plotly::layout(plot_bgcolor = background_colour, paper_bgcolor = background_colour) %>%
-    plotly::config(displaylogo = F)
+    plotly::config(displaylogo = F)%>%plotly::partial_bundle()
   #------------------------------------------------- Return output
   plot_output <- list()
   plot_output[["plot_fcast_summary_sum"]] <- plot_fcast_summary_sum

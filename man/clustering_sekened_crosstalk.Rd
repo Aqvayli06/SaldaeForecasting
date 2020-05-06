@@ -4,7 +4,8 @@
 \alias{clustering_sekened_crosstalk}
 \title{Saldae Clustering CrossTalk}
 \usage{
-clustering_sekened_crosstalk(mds_CT = NULL, tisefka = NULL)
+clustering_sekened_crosstalk(cluster_mapping = NULL, mds_CT = NULL,
+  tisefka = NULL)
 }
 \arguments{
 \item{mds_CT}{MDS crosstalk ShareData object}

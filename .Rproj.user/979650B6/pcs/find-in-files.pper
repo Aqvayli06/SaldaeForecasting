@@ -3,8 +3,8 @@
         "caseSensitive" : false,
         "filePatterns" : [
         ],
-        "path" : "~/Saldae_Analytics/SaldaePackages/SaldaeDataExplorer/R",
-        "query" : "detect_number_basis_units_in_upper_unit",
+        "path" : "~/Saldae_Analytics/SaldaePackages/SaldaeForecasting/R",
+        "query" : "Foreign_Exchange_Rates",
         "regex" : false
     }
 }

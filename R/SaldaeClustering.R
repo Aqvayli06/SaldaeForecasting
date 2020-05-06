@@ -12,8 +12,6 @@ Saldae_cluserting_main <- function(tisefka = NULL,anomaly_detection= FALSE,num_c
   tisefka_date <- tisefka$date
   tisefka$date <- NULL
   tisefka <- purrr::map_df(.x= tisefka,~SaldaeDataExplorer::interp_na_value(ts_x = .x, interp_mode = "spline"))
-
-
   #. outliers correction
   if (anomaly_detection == TRUE) {
     tisefka <- SaldaeDataExplorer::anomaly_detection_nnegh(tisefka = tisefka, anomaly_mode = "anomalize", target_ts = target_variables)
@@ -28,6 +26,9 @@ Saldae_cluserting_main <- function(tisefka = NULL,anomaly_detection= FALSE,num_c
   clust_output[["tisefka_origin"]]<- tisefka%>%dplyr::mutate(date = tisefka_date)
   clust_output[["tisefka_clust"]] <- tisefka_clust
 
+  clust_output[["cluster_mapping"]] <- tibble(ts_cluster = tisefka_clust@cluster,ts_name = names(tisefka_clust@datalist))
+
+
   end_time <- Sys.time()-start_time
   end_time
   return(clust_output)
@@ -35,8 +36,8 @@ Saldae_cluserting_main <- function(tisefka = NULL,anomaly_detection= FALSE,num_c
 # tisefka <- Foreign_Exchange_Rates
 # tisefka$date <- tisefka$`Time Serie`
 # tisefka$`Time Serie`<- NULL
-
-
+#
+#
 
 
 
@@ -52,7 +53,9 @@ SA_clustering_core_ui <- function(id){
   fluidPage(
     fluidRow(
       column(width =2,
-             uiOutput(ns("number_clusters")))
+             uiOutput(ns("number_clusters"))),
+      column(width = 3,
+             uiOutput(ns("sart_clustering")))
     )
   )
 }
@@ -74,16 +77,24 @@ SA_clustering_core_mod <- function(input, output, session,tisefka) {
                               choices = clusters_choices,
                               selected = 5)
   })
+
+  output$sart_clustering <- renderUI({
+    req(input$number_clusters)
+    req(tisefka_inu())
+    shinyWidgets::actionBttn(inputId = session$ns("start_clustering"),
+                             label = "Start",style = "unite"
+                             )
+  })
   tisefka_inu <- reactive({
     tisefka()$tisefka_tizegzawin
   })
- clust_results <- reactive({
-    req(tisefka_inu())
-    req(input$number_clusters)
-    tisefka_clust<-tail(tisefka_inu(),700)
-    print("start clustering")
-    Saldae_cluserting_main(tisefka = tisefka_clust,num_clusters = input$number_clusters)
-  })
+
+#--------- Start clustering
+ clust_results <- eventReactive(input$start_clustering,{
+   tisefka_clust<-tail(tisefka_inu(),700)
+   print("start clustering")
+   Saldae_cluserting_main(tisefka = tisefka_clust,num_clusters = input$number_clusters)
+ })
 }
 
 

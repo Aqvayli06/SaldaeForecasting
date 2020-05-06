@@ -7,13 +7,14 @@
 #' @return t.b.d
 #' @export
 
-clustering_sekened_crosstalk <- function(mds_CT= NULL,tisefka= NULL){
+clustering_sekened_crosstalk <- function(cluster_mapping = NULL,mds_CT= NULL,tisefka= NULL){
   df_mds <- mds_CT$data(withSelection = TRUE, withFilter = TRUE)
   selected_variables<- df_mds%>%dplyr::filter(selected_==TRUE)
+  if(length(selected_variables)==0)return(NULL)
   selected_variables<- paste(selected_variables$ts_names)
   my_clust_plot<-tisefka%>%dplyr::select(c("date",selected_variables))%>%
-    tidyr::gather("ts_name","value" ,-date)
-  ggplot2::ggplot(data = my_clust_plot,mapping= ggplot2::aes(x = date,y = value,group=ts_name,colour=ts_name))+ggplot2::geom_line()
+    tidyr::gather("ts_name","value" ,-date)%>%dplyr::left_join(cluster_mapping,by = "ts_name")
+  ggplot2::ggplot(data = my_clust_plot,mapping= ggplot2::aes(x = date,y = value))+ggplot2::geom_line(aes(group=ts_cluster,color=ts_name))
 }
 
 
