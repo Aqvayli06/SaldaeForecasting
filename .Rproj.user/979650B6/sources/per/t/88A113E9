@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1588857617814.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2047908447",
+    "id" : "88A113E9",
+    "lastKnownWriteTime" : 1588857859,
+    "last_content_update" : 1588857859,
+    "path" : "~/Saldae_Analytics/SaldaePackages/SaldaeForecasting/R/Clustering_UI.R",
+    "project_path" : "R/Clustering_UI.R",
+    "properties" : {
+        "cursorPosition" : "11,46",
+        "scrollLine" : "2",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "r_source"
+}
