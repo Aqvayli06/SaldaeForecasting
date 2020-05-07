@@ -14,7 +14,7 @@ clustering_sekened_crosstalk <- function(cluster_mapping = NULL,mds_CT= NULL,tis
   selected_variables<- paste(selected_variables$ts_names)
   my_clust_plot<-tisefka%>%dplyr::select(c("date",selected_variables))%>%
     tidyr::gather("ts_name","value" ,-date)%>%dplyr::left_join(cluster_mapping,by = "ts_name")
-  ggplot2::ggplot(data = my_clust_plot,mapping= ggplot2::aes(x = date,y = value))+ggplot2::geom_line(aes(group=ts_cluster,color=ts_name))
+  ggplot2::ggplot(data = my_clust_plot,mapping= ggplot2::aes(x = date,y = value))+ggplot2::geom_line(ggplot2::aes(group=ts_cluster,color=ts_name))
 }
 
 
