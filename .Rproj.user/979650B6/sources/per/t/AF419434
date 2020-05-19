@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1589113223887.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1507832535",
+    "id" : "AF419434",
+    "lastKnownWriteTime" : 1589306196,
+    "last_content_update" : 1589306196,
+    "path" : "~/Saldae_Analytics/SaldaePackages/SaldaeModulesUI/R/ghred_tisefka_UI.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "79,28",
+        "scrollLine" : "78"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
