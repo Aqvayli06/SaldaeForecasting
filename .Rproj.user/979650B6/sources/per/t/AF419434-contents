@@ -223,6 +223,7 @@ output$tisefka_spread_var <- renderUI({
     )
   })
 
+
 tisefka_tizegzawin <- reactive({
     req(input$SA_date_format)
     aggregation_metric <- spread_key<-spread_value <- NULL
@@ -234,9 +235,9 @@ tisefka_tizegzawin <- reactive({
     }else if(handle_duplicate=="Aggregate"){
       aggregation_metric  <-  input$aggregate_duplicates
     }
-
     SaldaeDataExplorer::sbed_tisefka(tisefka = tisefka(), date_variable = input$date_variable, SA_date_format = input$SA_date_format, spread_key = spread_key,aggregation_metric = aggregation_metric, spread_value = spread_value)
 })
+
 #--------- display raw data
 data_summary <- reactive({
   req(tisefka_tizegzawin())

@@ -3,8 +3,9 @@
         "caseSensitive" : false,
         "filePatterns" : [
         ],
-        "path" : "~/Saldae_Analytics/SaldaePackages/SaldaeForecasting/R",
-        "query" : "Foreign_Exchange_Rates",
+        "path" : "/R",
+        "projectRelative" : true,
+        "query" : "prophet_forecast_f",
         "regex" : false
     }
 }

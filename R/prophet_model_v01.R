@@ -29,13 +29,17 @@ prophet_fit <- function(tisefka = NULL,target_variable= NULL ,sald_holidays = NU
 
 prophet_forecast_f <- function(prophet_object = NULL, asurif_zdat = 10, ukud_unit = NULL) {
   # .............................. make future data frame based on forecast horizon
-  prphet_freq <- c("day", "week", "month", "quarter", "year", "1", 60, 3600)
-  names(prphet_freq) <- c("days", "weeks", "months", "quarters", "years", "seconds", "minutes", "hours")
+  prphet_freq <- c("day", "week", "month", "quarter", "year", 1, 60, 3600,1800,900)
+  names(prphet_freq) <- c("days", "weeks", "months", "quarters", "years", "seconds", "minutes", "hours", "1/2 hours" , "1/4 hours")
 
   # ukud_unit<- detect_date_auto(time_vect = tisefka$date,
   #                              n_new_dates = NULL)
   # future = data.frame(ds = ukud_unit)
-  future <- prophet::make_future_dataframe(prophet_object, periods = asurif_zdat, freq = ukud_unit, include_history = TRUE)
+
+  prphet_freq <- ifelse(is.na(as.numeric(prphet_freq[ukud_unit])),prphet_freq[ukud_unit],as.numeric(prphet_freq[ukud_unit]))
+  future <- prophet::make_future_dataframe(prophet_object, periods = asurif_zdat, freq = prphet_freq, include_history = TRUE)
+
+
   # ................. forecast prediction......................
   attr(future$ds, "tzone") <- "CET"
   attr(prophet_object$history$ds, "tzone") <- "CET"

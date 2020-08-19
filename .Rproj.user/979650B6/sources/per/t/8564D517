@@ -12,10 +12,13 @@
     "path" : "~/Saldae_Analytics/SaldaePackages/SaldaeForecasting/R/Saldae_forecasting_pool.R",
     "project_path" : "R/Saldae_forecasting_pool.R",
     "properties" : {
-        "cursorPosition" : "20,107",
-        "scrollLine" : "4",
+        "cursorPosition" : "24,26",
+        "scrollLine" : "0",
         "tempName" : "Untitled1"
     },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
     "relative_order" : 3,
     "source_on_save" : false,
     "source_window" : "",
